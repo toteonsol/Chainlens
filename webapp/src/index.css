@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ChainLens - Premium Blockchain Transaction Explorer Design System */
+
+@layer base {
+  :root {
+    /* Dark luxury theme - inspired by high-end fintech */
+    --background: 225 25% 3%;
+    --foreground: 210 20% 98%;
+
+    --card: 225 25% 5%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 225 25% 6%;
+    --popover-foreground: 210 20% 98%;
+
+    /* Electric cyan primary - premium fintech feel */
+    --primary: 175 85% 55%;
+    --primary-foreground: 225 25% 3%;
+
+    --secondary: 225 20% 10%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 225 15% 12%;
+    --muted-foreground: 225 10% 50%;
+
+    /* Violet accent for contrast */
+    --accent: 265 80% 65%;
+    --accent-foreground: 210 20% 98%;
+
+    /* Success/Warning/Error states */
+    --success: 155 75% 50%;
+    --warning: 40 95% 55%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 225 15% 12%;
+    --input: 225 15% 10%;
+    --ring: 175 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-start: 175 85% 55%;
+    --gradient-mid: 220 80% 60%;
+    --gradient-end: 265 80% 65%;
+
+    --sidebar-background: 225 25% 5%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 175 85% 55%;
+    --sidebar-primary-foreground: 225 25% 3%;
+    --sidebar-accent: 225 20% 10%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 225 15% 12%;
+    --sidebar-ring: 175 85% 55%;
+
+    /* Chain colors */
+    --chain-ethereum: 220 75% 55%;
+    --chain-bitcoin: 35 90% 55%;
+    --chain-solana: 280 75% 60%;
+    --chain-polkadot: 340 80% 55%;
+    --chain-cosmos: 265 70% 55%;
+    --chain-avalanche: 0 75% 55%;
+    --chain-polygon: 265 85% 55%;
+    --chain-arbitrum: 210 80% 55%;
+    --chain-optimism: 0 70% 55%;
+    --chain-base: 215 90% 55%;
+    --chain-bittensor: 45 90% 55%;
+    --chain-ronin: 200 75% 55%;
+    --chain-near: 175 70% 50%;
+    --chain-sui: 205 85% 55%;
+    --chain-aptos: 160 70% 50%;
+  }
+
+  .dark {
+    --background: 225 25% 3%;
+    --foreground: 210 20% 98%;
+
+    --card: 225 25% 5%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 225 25% 6%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 175 85% 55%;
+    --primary-foreground: 225 25% 3%;
+
+    --secondary: 225 20% 10%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 225 15% 12%;
+    --muted-foreground: 225 10% 50%;
+
+    --accent: 265 80% 65%;
+    --accent-foreground: 210 20% 98%;
+
+    --success: 155 75% 50%;
+    --warning: 40 95% 55%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 225 15% 12%;
+    --input: 225 15% 10%;
+    --ring: 175 85% 55%;
+
+    --sidebar-background: 225 25% 5%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 175 85% 55%;
+    --sidebar-primary-foreground: 225 25% 3%;
+    --sidebar-accent: 225 20% 10%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 225 15% 12%;
+    --sidebar-ring: 175 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-outfit antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer utilities {
+  /* Premium gradient text */
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--gradient-mid)) 50%,
+      hsl(var(--accent)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3),
+                0 0 40px hsl(var(--primary) / 0.15),
+                0 0 60px hsl(var(--primary) / 0.05);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3),
+                0 0 40px hsl(var(--accent) / 0.15);
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .glass-strong {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(40px);
+    border: 1px solid hsl(var(--border) / 0.8);
+  }
+
+  /* Premium card hover */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px hsl(var(--primary) / 0.1),
+                0 8px 16px hsl(var(--background) / 0.3);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  /* Animated border gradient */
+  .border-gradient {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+
+  .border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.5),
+      transparent 50%,
+      hsl(var(--accent) / 0.5)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* Shine animation */
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--foreground) / 0.05),
+      transparent
+    );
+    animation: shine 3s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    0%, 100% { left: -100%; }
+    50% { left: 150%; }
+  }
+
+  /* Pulse glow animation */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px hsl(var(--primary) / 0.2),
+                  0 0 10px hsl(var(--primary) / 0.1);
+    }
+    50% {
+      box-shadow: 0 0 15px hsl(var(--primary) / 0.4),
+                  0 0 30px hsl(var(--primary) / 0.2);
+    }
+  }
+
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.1s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.2s; }
+  .stagger-5 { animation-delay: 0.25s; }
+  .stagger-6 { animation-delay: 0.3s; }
+  .stagger-7 { animation-delay: 0.35s; }
+  .stagger-8 { animation-delay: 0.4s; }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+  background-size: 200% 100%;
+}
+
+/* Table row hover effect */
+.table-row-hover {
+  transition: all 0.15s ease;
+}
+
+.table-row-hover:hover {
+  background: hsl(var(--muted) / 0.5);
+}
+
+/* Chain color utilities */
+.chain-ethereum { color: hsl(var(--chain-ethereum)); }
+.chain-bitcoin { color: hsl(var(--chain-bitcoin)); }
+.chain-solana { color: hsl(var(--chain-solana)); }
+.chain-polkadot { color: hsl(var(--chain-polkadot)); }
+.chain-cosmos { color: hsl(var(--chain-cosmos)); }
+.chain-avalanche { color: hsl(var(--chain-avalanche)); }
+.chain-polygon { color: hsl(var(--chain-polygon)); }
+.chain-arbitrum { color: hsl(var(--chain-arbitrum)); }
+.chain-optimism { color: hsl(var(--chain-optimism)); }
+.chain-base { color: hsl(var(--chain-base)); }
+.chain-bittensor { color: hsl(var(--chain-bittensor)); }
+.chain-ronin { color: hsl(var(--chain-ronin)); }
+.chain-near { color: hsl(var(--chain-near)); }
+.chain-sui { color: hsl(var(--chain-sui)); }
+.chain-aptos { color: hsl(var(--chain-aptos)); }
+
+.bg-chain-ethereum { background-color: hsl(var(--chain-ethereum)); }
+.bg-chain-bitcoin { background-color: hsl(var(--chain-bitcoin)); }
+.bg-chain-solana { background-color: hsl(var(--chain-solana)); }
+.bg-chain-polkadot { background-color: hsl(var(--chain-polkadot)); }
+.bg-chain-cosmos { background-color: hsl(var(--chain-cosmos)); }
+.bg-chain-avalanche { background-color: hsl(var(--chain-avalanche)); }
+.bg-chain-polygon { background-color: hsl(var(--chain-polygon)); }
+.bg-chain-arbitrum { background-color: hsl(var(--chain-arbitrum)); }
+.bg-chain-optimism { background-color: hsl(var(--chain-optimism)); }
+.bg-chain-base { background-color: hsl(var(--chain-base)); }
+.bg-chain-bittensor { background-color: hsl(var(--chain-bittensor)); }
+.bg-chain-ronin { background-color: hsl(var(--chain-ronin)); }
+.bg-chain-near { background-color: hsl(var(--chain-near)); }
+.bg-chain-sui { background-color: hsl(var(--chain-sui)); }
+.bg-chain-aptos { background-color: hsl(var(--chain-aptos)); }
