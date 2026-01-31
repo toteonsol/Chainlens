@@ -15,6 +15,10 @@ A premium blockchain transaction explorer that supports 25+ networks with CSV ex
 - **Automatic Fallbacks**: If primary API fails, automatically tries backup endpoints
 - **Detailed Error Messages**: Clear guidance when searches fail with actionable suggestions
 
+## Feedback & Contact
+
+Have questions, suggestions, or found a bug? Reach out on X/Twitter: [@vibecodewiki](https://twitter.com/vibecodewiki)
+
 ## API Status & Rate Limits
 
 ### Free Public APIs (No Key Required)
